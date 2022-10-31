@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     public float speed = 2; //Movement Speed value
     public float jump = 14f; //Jump value
+    public Animator anmi;
 
     void Start()
     {
@@ -20,6 +21,7 @@ public class PlayerController : MonoBehaviour
         float dirX = Input.GetAxisRaw("Horizontal"); //Getting the direction of the object
         rb.velocity = new Vector2(dirX * speed, rb.velocity.y); //Moving in that direction using A or D
 
+        anmi.SetFloat("Direction", Input.GetAxisRaw("Horizontal"));
 
         if (Input.GetButtonDown("Jump"))
         {
