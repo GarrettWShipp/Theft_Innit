@@ -28,16 +28,17 @@ public class Movement : MonoBehaviour
         {
             nextPos = pos2.position; //tells the platform that it will be moving to pos2
             anmi.SetTrigger("Enemy");
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         if (transform.position == pos2.position) //Checks current pos to pos2.
         {
             nextPos = pos1.position;//tells the platform that it will be moving to pos1
             anmi.SetTrigger("Enemy");
+            transform.localScale = new Vector3(1, 1, 1);
         }
 
         transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime); //Movement
-
-
+        
     }
 
     private void OnDrawGizmos()
