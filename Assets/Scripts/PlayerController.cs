@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
     public float jump = 14f; //Jump value
     public Animator anmi;
 
+    private int jumpCounter;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>(); //Automatically gathers the component off of the object the script is on
@@ -25,8 +27,20 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump"))
         {
+            jumpCounter -= 1;
             rb.velocity = new Vector2(rb.velocity.x, jump); //Movement for up
         } //End of Jump
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2);
+        Debug.DrawRay(transform.position, Vector2.down, Color.green);
+
+        if (hit.collider == gameObject.CompareTag("Ground"))
+        {
+            jumpCounter = 2;
+            Debug.Log(hit);
+        }
+
+       
 
 
     }// End of Update
