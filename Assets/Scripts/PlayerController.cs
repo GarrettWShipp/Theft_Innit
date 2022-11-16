@@ -12,9 +12,13 @@ public class PlayerController : MonoBehaviour
     public float jump = 14f; //Jump value
     public Animator anmi;
 
+<<<<<<< Updated upstream
     public Transform groundCheck;
     public LayerMask groundLayer;
     bool isGrounded;
+=======
+    private int jumpCounter;
+>>>>>>> Stashed changes
 
     void Start()
     {
@@ -31,9 +35,26 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
+            jumpCounter -= 1;
             rb.velocity = new Vector2(rb.velocity.x, jump); //Movement for up
             
         } //End of Jump
+<<<<<<< Updated upstream
+=======
+
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2);
+        Debug.DrawRay(transform.position, Vector2.down, Color.green);
+
+        if (hit.collider == gameObject.CompareTag("Ground"))
+        {
+            jumpCounter = 2;
+            Debug.Log(hit);
+        }
+
+       
+
+
+>>>>>>> Stashed changes
     }// End of Update
     
     
