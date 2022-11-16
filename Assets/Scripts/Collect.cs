@@ -11,13 +11,14 @@ public class Collect : MonoBehaviour
         lootBar.SetMaxLoot(maxLoot);
     }
 
+
     
     
      void OnTriggerEnter2D(Collider2D other)
      {
          if (other.tag == ("Player"))
          {
-             Debug.Log("Collected");
+             //Debug.Log("Collected");
              GetLoot(1);
 
             Destroy(gameObject);
@@ -27,8 +28,6 @@ public class Collect : MonoBehaviour
 
     void GetLoot(int Loot)
     {
-
-        
         lootBar.SetLoot(1);
     }
 }
