@@ -6,18 +6,25 @@ using UnityEngine.UI;
 public class LootSlider : MonoBehaviour
 {
     public Slider slider;
+    public Animator anmi;
 
 
-    public void SetMaxLoot(int loot)
+
+    public void SetMaxLoot(float loot)
     {
         slider.maxValue = loot;
         slider.value = loot;
 
+        if (loot >= 0)
+        {
+            anmi.SetTrigger("Open");
+        }
+
     }
-    public void SetLoot(int loot)
+    public void SetLoot(float loot)
     {
         slider.value -= loot;
-
+        
 
     }
 }

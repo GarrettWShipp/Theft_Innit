@@ -22,8 +22,17 @@ public class Collect : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+        void Door()
+        {
+            if (maxLoot == 0)
+            {
+            GameObject.Find("EndLevel").SetActive(false);
 
 
+            }
+
+        }
+    
         void GetLoot(int Loot)
         {
 
