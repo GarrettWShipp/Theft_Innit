@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Win : MonoBehaviour
 {
@@ -6,7 +7,7 @@ public class Win : MonoBehaviour
     {
         if (other.tag == ("Player"))
         {
-            Debug.Log("win");
+            SceneManager.LoadScene("Start Menu");
 
         }
     }

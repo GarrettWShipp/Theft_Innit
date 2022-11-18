@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Collect : MonoBehaviour
@@ -8,36 +10,28 @@ public class Collect : MonoBehaviour
     void Start()
 
     {
-        
+
         lootBar.SetMaxLoot(maxLoot);
     }
 
-        void OnTriggerEnter2D(Collider2D other)
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == ("Player"))
         {
-            if (other.tag == ("Player"))
-            {
-                //Debug.Log("Collected");
-                GetLoot(1);
+            //Debug.Log("Collected");
+            GetLoot(1);
 
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
-        void Door()
-        {
-            if (maxLoot == 0)
-            {
-            GameObject.Find("EndLevel").SetActive(false);
+    }
 
 
-            }
 
-        }
-    
-        void GetLoot(int Loot)
-        {
 
-            lootBar.SetLoot(1);
-        }
+    void GetLoot(int Loot)
+    {
+
+        lootBar.SetLoot(1);
+    }
     
 }
-
